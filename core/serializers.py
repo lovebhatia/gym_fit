@@ -7,10 +7,6 @@ from django.core.validators import FileExtensionValidator
 from .models import CustomUser, Note, ExerciseDay, ExerciseDataList
 from .models import Exercise, Set, Workout, UserActivity, BMIRecord
 
-
-
-
-
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
     def get_token(cls, user):

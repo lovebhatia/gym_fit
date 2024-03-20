@@ -23,6 +23,7 @@ class Note(models.Model):
 class ExerciseDay(models.Model):
     name_of_day = models.CharField(max_length = 100)
     created = models.DateTimeField(auto_now_add = True)
+    image = models.CharField(max_length = 100,null=True)
     
 class Workout(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
