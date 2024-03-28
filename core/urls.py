@@ -5,7 +5,7 @@ from .views import (
     ExerciseListCreateAPIView, ExerciseRetrieveUpdateDestroyAPIView,
     SetListCreateAPIView, SetRetrieveUpdateDestroyAPIView, SetsByUserWorkoutExerciseListAPIView, 
     SaveSetsDataAPIView, BMIRecordListCreateAPIView, BMIRecordRetrieveUpdateDestroyAPIView, 
-    BMIRecordByUserAPIView
+    BMIRecordByUserAPIView,ExerciseDayCreate, DayRetrieveUpdateDestroy, ExerciseListCreate, ExerciseRetrieveUpdateDestroy
 )
 
 
@@ -43,6 +43,15 @@ urlpatterns = [
     path('bmi/detail/<int:pk>/', BMIRecordRetrieveUpdateDestroyAPIView.as_view(), name='bmi-detail'),
     path('bmi/user/<int:user_id>/', BMIRecordByUserAPIView.as_view(), name='bmi-by-user'),
     path('get-video-url/', views.get_video_url, name='get_video_url'),
+    
+      # URLs for Days (Workouts)
+    path('exercise_days/', ExerciseDayCreate.as_view(), name='day-list-create'),
+    path('exercise_days/<int:pk>/', DayRetrieveUpdateDestroy.as_view(), name='day-retrieve-update-destroy'),
+
+    # URLs for Exercises
+    path('exercises_day_list/', ExerciseListCreate.as_view(), name='exercise-list-create'),
+    path('exercises_day_list/<int:pk>/', ExerciseRetrieveUpdateDestroy.as_view(), name='exercise-retrieve-update-destroy'),
+
 
 
 

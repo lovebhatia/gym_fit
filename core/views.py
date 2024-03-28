@@ -330,12 +330,25 @@ def get_video_url(bucket_name):
     print(signed_url)
     return Response({'video_url': signed_url})
 
-    # List all objects in the bucket
-    blobs = bucket.list_blobs()
 
-    # Print the names of the objects
-    for blob in blobs:
-        print(blob.name)
+class ExerciseDayCreate(generics.ListCreateAPIView):
+    queryset = ExerciseDay.objects.all()
+    serializer_class = ExerciseDaySerializer
+
+class DayRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+    queryset = ExerciseDataList.objects.all()
+    serializer_class = ExerciseDataListSerializer
+
+class ExerciseListCreate(generics.ListCreateAPIView):
+    queryset = Exercise.objects.all()
+    serializer_class = ExerciseSerializer
+
+class ExerciseRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Exercise.objects.all()
+    serializer_class = ExerciseSerializer
+
+
+   
 
 
     
